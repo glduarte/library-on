@@ -22,21 +22,31 @@ export default class CreateBookService implements Service {
         isbn,
         quantityInStock,
     }: IRequest) {
-        throw new CustomError({ status: 403, message: "Deu erro" });
-        // if (!title || !author || !isbn) {
-        // }
-        const newBook = await prisma.book.create({
-            data: {
-                title,
-                details,
-                publishYear,
-                author,
-                publishingCompany,
-                isbn,
-                quantityInStock,
-            },
-        });
+        if (!title || !author || !isbn) {
+            throw new CustomError({
+                status: 400,
+                message: "Some information is missing",
+            });
+        }
+        try {
+            const newBook = await prisma.book.create({
+                data: {
+                    title,
+                    details,
+                    publishYear,
+                    author,
+                    publishingCompany,
+                    isbn,
+                    quantityInStock,
+                },
+            });
 
-        console.log(newBook);
+            return newBook;
+        } catch (err) {
+            throw new CustomError({
+                status: 400,
+                message: "Error",
+            });
+        }
     }
 }
