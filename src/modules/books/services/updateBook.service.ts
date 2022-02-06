@@ -1,6 +1,6 @@
 import CustomError from "../../../shared/customError";
 import prisma from "../../../shared/prisma";
-import Service from "../../../shared/service";
+import Service from "../../../shared/abstract classes/service";
 
 interface IObjectInformations {
     title?: string;
