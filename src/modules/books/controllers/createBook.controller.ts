@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { ParamsDictionary } from "express-serve-static-core";
 import { ParsedQs } from "qs";
-import Controller from "../../../shared/abstract classes/controller";
+import Controller from "../../../shared/abstract_classes/controller";
 import CreateBookService from "../services/createBook.service";
 
 export default class CreateBookController implements Controller {
