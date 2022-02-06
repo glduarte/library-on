@@ -1,6 +1,6 @@
 import CustomError from "../../../shared/customError";
 import prisma from "../../../shared/prisma";
-import Service from "../../../shared/abstract classes/service";
+import Service from "../../../shared/abstract_classes/service";
 
 interface IRequest {
     title: string;
