@@ -25,4 +25,4 @@
 -   Node.js com Typescript
 -   Express (Framework)
 -   Prisma.io (ORM)
--   MySQL (Banco de dados)
+-   PostgresSQL (Banco de dados)
