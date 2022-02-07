@@ -17,7 +17,7 @@ export default class ShowBooksService implements Service {
             const allBooks = await prisma.book.findMany();
             return allBooks;
         }
-        const book = await prisma.book.findUnique({
+        const book = await prisma.book.findFirst({
             where: {
                 isbn: search,
             },

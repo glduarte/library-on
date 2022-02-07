@@ -7,7 +7,7 @@ export default class DeleteBookService implements Service {
         try {
             await prisma.book.delete({
                 where: {
-                    id: id,
+                    id,
                 },
             });
             return { message: "Book deleted with success" };
