@@ -14,6 +14,19 @@ interface IObjectInformations {
 
 export default class UpdateBookService implements Service {
     async execute(id: string, informationsToUpdate: IObjectInformations) {
+        if ("isbn" in informationsToUpdate) {
+            const isbnAlreadyExists = await prisma.book.findFirst({
+                where: {
+                    isbn: informationsToUpdate.isbn,
+                },
+            });
+            if (isbnAlreadyExists) {
+                throw new CustomError({
+                    status: 400,
+                    message: "Isbn already registered",
+                });
+            }
+        }
         try {
             const updatedBook = await prisma.book.update({
                 where: {

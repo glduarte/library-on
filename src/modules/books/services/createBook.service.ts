@@ -28,6 +28,16 @@ export default class CreateBookService implements Service {
                 message: "Some information is missing",
             });
         }
+
+        const isbnAlreadyExists = await prisma.book.findFirst({
+            where: {
+                isbn,
+            },
+        });
+
+        if (isbnAlreadyExists) {
+            throw new CustomError({ status: 400, message: "Isbn already registered" });
+        }
         try {
             const newBook = await prisma.book.create({
                 data: {
