@@ -6,7 +6,8 @@
   "author": "Guilherme Duarte <gui.lammel.duarte@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon"
+    "start": "nodemon",
+    "db:seed": "ts-node prisma/seed.ts"
   },
   "dependencies": {
     "@prisma/client": "^3.8.1",
