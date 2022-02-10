@@ -1,7 +1,9 @@
+import { hash } from "bcryptjs";
+import { sign } from "jsonwebtoken";
+import jwtConfig from "../../../configurations/jwt.config";
 import Service from "../../../shared/abstract_classes/service";
 import CustomError from "../../../shared/customError";
 import prisma from "../../../shared/prisma";
-import { hash } from "bcryptjs";
 
 interface IRequest {
     name: string;
@@ -46,7 +48,11 @@ export default class CreateUserService implements Service {
                 },
             });
 
-            return newUser;
+            const token = sign({ name: newUser.name }, jwtConfig.secret, {
+                subject: newUser.id,
+                expiresIn: jwtConfig.expiresIn,
+            });
+            return { token, newUser };
         } catch (err) {
             throw new CustomError({
                 status: 400,
