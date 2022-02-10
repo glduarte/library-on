@@ -5,7 +5,7 @@ async function main() {
         data: {
             name: "admin",
             email: "admin@admin.com",
-            password: "123",
+            password: "$2a$08$yzLOd5VImtrk909A.8othe5N77KbHo/9y8R7gHk8XYYW4QHSA03NG", //123
             role: "ADMIN",
         },
     });
