@@ -7,7 +7,7 @@
 </p>
 
 <h4 align="center"> 
-	🚧 Library-on Em construção... 🚧
+	🚧 Library-on concluído
 </h4>
 
 ### Features
