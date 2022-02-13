@@ -18,7 +18,7 @@
 -   [x] Criação do usuário ADMIN
 -   [x] Criação dos usuários locatários
 -   [x] Autenticação e autorização dos usuários
--   [ ] Alugar um livro
+-   [x] Alugar um livro
 
 ### Tecnologias
 
